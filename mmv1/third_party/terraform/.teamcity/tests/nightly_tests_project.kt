@@ -26,7 +26,7 @@ class NightlyTestProjectsTests {
 
         // Make assertions about builds in both nightly test projects
         (gaNightlyTestProject.buildTypes + betaNightlyTestProject.buildTypes).forEach{bt ->
-            assertTrue("Build configuration `${bt.name}` contains at least one trigger", bt.triggers.items.isNotEmpty())
+            assertTrue("Build configuration `${bt.name}` should contain at least one trigger", bt.triggers.items.isNotEmpty())
              // Look for at least one CRON trigger
             var found: Boolean = false
             for (item in bt.triggers.items){
@@ -35,7 +35,7 @@ class NightlyTestProjectsTests {
                     break
                 }
             }
-            assertTrue("Build configuration `${bt.name}` contains a CRON trigger", found)
+            assertTrue("Build configuration `${bt.name}` should contain a CRON/'schedulingTrigger' trigger", found)
         }
     }
 }
