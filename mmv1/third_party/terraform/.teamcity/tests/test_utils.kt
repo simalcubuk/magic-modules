@@ -80,7 +80,7 @@ fun getSubProject(parent: Project, subProjectName: String): Project {
 fun getBuildFromProject(parentProject: Project, buildName: String): BuildType {
     val buildType: BuildType?  = parentProject!!.buildTypes.find { p->  p.name == buildName}
     if (buildType == null) {
-        Assert.fail("Could not find the '$buildName' build in project ${parentProject.name}")
+        fail("Could not find the '$buildName' build in project ${parentProject.name}")
     }
 
     return buildType!!
